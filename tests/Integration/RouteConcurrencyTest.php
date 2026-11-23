@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql\Tests\Integration;
+namespace Endurance\RoutePostgresql\Tests\Integration;
 
-use Youmad\Endurance\Route\Application\UseCase\EditRouteMetadata;
-use Youmad\Endurance\Route\Entity\Route;
-use Youmad\Endurance\Route\Exception\RouteConflict;
-use Youmad\Endurance\Route\Exception\RouteNotFound;
-use Youmad\Endurance\Route\Exception\RouteRevisionNotFound;
-use Youmad\Endurance\Route\ValueObject\RouteMetadata;
-use Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteRetention;
-use Youmad\Endurance\RoutePostgresql\Tests\Support\StorageTestCase;
+use Endurance\Route\Application\UseCase\EditRouteMetadata;
+use Endurance\Route\Entity\Route;
+use Endurance\Route\Exception\RouteConflict;
+use Endurance\Route\Exception\RouteNotFound;
+use Endurance\Route\Exception\RouteRevisionNotFound;
+use Endurance\Route\ValueObject\RouteMetadata;
+use Endurance\RoutePostgresql\DoctrineDbalRouteRetention;
+use Endurance\RoutePostgresql\Tests\Support\StorageTestCase;
 
 final class RouteConcurrencyTest extends StorageTestCase
 {

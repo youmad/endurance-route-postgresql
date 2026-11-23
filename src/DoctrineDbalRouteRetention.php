@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql;
+namespace Endurance\RoutePostgresql;
 
 use Doctrine\DBAL\Connection;
-use Youmad\Endurance\Route\Exception\RouteConflict;
-use Youmad\Endurance\Route\ValueObject\RouteId;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\Route\Exception\RouteConflict;
+use Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\ValueObject\RouteRevisionId;
 
 /** Reference keys retain content; they never grant read access. */
 final readonly class DoctrineDbalRouteRetention

@@ -6,7 +6,7 @@ declare(strict_types=1);
 return static function (Closure $ensure, string $autoload, string $package): void {
     $connection = Doctrine\DBAL\DriverManager::getConnection(['driver' => 'pdo_pgsql', 'host' => '127.0.0.1', 'port' => 1, 'dbname' => 'consumer_test']);
     try {
-        new Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteRepository($connection);
+        new Endurance\RoutePostgresql\DoctrineDbalRouteRepository($connection);
         $ensure(!$connection->isConnected());
         $ensure(is_file($package.'/migrations/Version202610150200.php'));
     } finally {

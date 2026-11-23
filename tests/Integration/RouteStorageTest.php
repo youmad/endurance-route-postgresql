@@ -2,39 +2,39 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql\Tests\Integration;
+namespace Endurance\RoutePostgresql\Tests\Integration;
 
 use Doctrine\DBAL\Exception\DriverException;
+use Endurance\Foundation\ValueObject\Coordinate;
+use Endurance\Geo\Elevation;
+use Endurance\Geo\ElevationOrigin;
+use Endurance\Geo\PathGeometry;
+use Endurance\Geo\PathPoint;
+use Endurance\Geo\PathPosition;
+use Endurance\Geo\ViaPoint;
+use Endurance\Geo\ViaPoints;
+use Endurance\Route\Application\RevisionContent;
+use Endurance\Route\Application\UseCase\EditRouteMetadata;
+use Endurance\Route\Application\UseCase\PublishRoute;
+use Endurance\Route\Exception\RouteConflict;
+use Endurance\Route\Exception\RouteRevisionAlreadyExists;
+use Endurance\Route\Exception\RouteRevisionNotFound;
+use Endurance\Route\ValueObject\GeometryAnchor;
+use Endurance\Route\ValueObject\GeometryCoverage;
+use Endurance\Route\ValueObject\NavigationCue;
+use Endurance\Route\ValueObject\ReportedDistance;
+use Endurance\Route\ValueObject\RevisionProperties;
+use Endurance\Route\ValueObject\RevisionProvenance;
+use Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\ValueObject\RouteMetadata;
+use Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\Route\ValueObject\RouteWaypoint;
+use Endurance\Route\ValueObject\ViaPointAnchor;
+use Endurance\RoutePostgresql\DoctrineDbalRouteMaintenance;
+use Endurance\RoutePostgresql\DoctrineDbalRouteRepository;
+use Endurance\RoutePostgresql\DoctrineDbalRouteRetention;
+use Endurance\RoutePostgresql\Tests\Support\StorageTestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Youmad\Endurance\Foundation\ValueObject\Coordinate;
-use Youmad\Endurance\Geo\Elevation;
-use Youmad\Endurance\Geo\ElevationOrigin;
-use Youmad\Endurance\Geo\PathGeometry;
-use Youmad\Endurance\Geo\PathPoint;
-use Youmad\Endurance\Geo\PathPosition;
-use Youmad\Endurance\Geo\ViaPoint;
-use Youmad\Endurance\Geo\ViaPoints;
-use Youmad\Endurance\Route\Application\RevisionContent;
-use Youmad\Endurance\Route\Application\UseCase\EditRouteMetadata;
-use Youmad\Endurance\Route\Application\UseCase\PublishRoute;
-use Youmad\Endurance\Route\Exception\RouteConflict;
-use Youmad\Endurance\Route\Exception\RouteRevisionAlreadyExists;
-use Youmad\Endurance\Route\Exception\RouteRevisionNotFound;
-use Youmad\Endurance\Route\ValueObject\GeometryAnchor;
-use Youmad\Endurance\Route\ValueObject\GeometryCoverage;
-use Youmad\Endurance\Route\ValueObject\NavigationCue;
-use Youmad\Endurance\Route\ValueObject\ReportedDistance;
-use Youmad\Endurance\Route\ValueObject\RevisionProperties;
-use Youmad\Endurance\Route\ValueObject\RevisionProvenance;
-use Youmad\Endurance\Route\ValueObject\RouteId;
-use Youmad\Endurance\Route\ValueObject\RouteMetadata;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
-use Youmad\Endurance\Route\ValueObject\RouteWaypoint;
-use Youmad\Endurance\Route\ValueObject\ViaPointAnchor;
-use Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteMaintenance;
-use Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteRepository;
-use Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteRetention;
-use Youmad\Endurance\RoutePostgresql\Tests\Support\StorageTestCase;
 
 final class RouteStorageTest extends StorageTestCase
 {
@@ -98,9 +98,9 @@ final class RouteStorageTest extends StorageTestCase
         $routeId = RouteId::generate();
         $id = RouteRevisionId::generate();
         $writer = $this->storage->beginRevision($routeId, $id);
-        $summary = (new \Youmad\Endurance\Route\Application\RouteContentValidator())->write($id, $this->content(), $writer);
-        $revision = new \Youmad\Endurance\Route\Entity\RouteRevision($id, $routeId, $this->clock->now(), $this->properties(), $summary);
-        $route = \Youmad\Endurance\Route\Entity\Route::create($revision, new RouteMetadata());
+        $summary = (new \Endurance\Route\Application\RouteContentValidator())->write($id, $this->content(), $writer);
+        $revision = new \Endurance\Route\Entity\RouteRevision($id, $routeId, $this->clock->now(), $this->properties(), $summary);
+        $route = \Endurance\Route\Entity\Route::create($revision, new RouteMetadata());
         $writer->publishNew($route, $revision);
         $writer->discard();
         $writer->discard();

@@ -1,5 +1,5 @@
 {
-    "name": "youmad/endurance-route-postgresql",
+    "name": "endurance/route-postgresql",
     "description": "PostgreSQL storage for immutable route revisions and bounded streams",
     "type": "library",
     "license": "MPL-2.0",
@@ -7,9 +7,9 @@
         "php": "^8.5",
         "ext-pdo_pgsql": "*",
         "doctrine/dbal": "^4.4",
-        "youmad/endurance-foundation": "^0.1.2",
-        "youmad/endurance-geo": "^0.1.0",
-        "youmad/endurance-route": "^0.1.0"
+        "endurance/foundation": "^0.2.0",
+        "endurance/geo": "^0.2.0",
+        "endurance/route": "^0.2.0"
     },
     "require-dev": {
         "doctrine/migrations": "^3.9",
@@ -17,12 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Youmad\\Endurance\\RoutePostgresql\\": "src/"
+            "Endurance\\RoutePostgresql\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Youmad\\Endurance\\RoutePostgresql\\Tests\\": "tests/"
+            "Endurance\\RoutePostgresql\\Tests\\": "tests/"
         }
     },
     "scripts": {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql;
+namespace Endurance\RoutePostgresql;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
-use Youmad\Endurance\Route\Exception\RouteNotFound;
-use Youmad\Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\Exception\RouteNotFound;
+use Endurance\Route\ValueObject\RouteId;
 
 /** Privileged lifecycle operations; the application supplies authorization. */
 final readonly class DoctrineDbalRouteMaintenance

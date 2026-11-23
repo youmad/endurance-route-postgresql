@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql;
+namespace Endurance\RoutePostgresql;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-use Youmad\Endurance\Foundation\ValueObject\Uuid;
-use Youmad\Endurance\Geo\PathGeometry;
-use Youmad\Endurance\Geo\ViaPoints;
-use Youmad\Endurance\Route\Application\Port\RouteRepository;
-use Youmad\Endurance\Route\Application\Port\RouteRevisionReader;
-use Youmad\Endurance\Route\Entity\Route;
-use Youmad\Endurance\Route\Entity\RouteRevision;
-use Youmad\Endurance\Route\Exception\RouteNotFound;
-use Youmad\Endurance\Route\Exception\RouteRevisionAlreadyExists;
-use Youmad\Endurance\Route\Exception\RouteRevisionNotFound;
-use Youmad\Endurance\Route\ValueObject\ExpectedRouteState;
-use Youmad\Endurance\Route\ValueObject\RouteId;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\Foundation\ValueObject\Uuid;
+use Endurance\Geo\PathGeometry;
+use Endurance\Geo\ViaPoints;
+use Endurance\Route\Application\Port\RouteRepository;
+use Endurance\Route\Application\Port\RouteRevisionReader;
+use Endurance\Route\Entity\Route;
+use Endurance\Route\Entity\RouteRevision;
+use Endurance\Route\Exception\RouteNotFound;
+use Endurance\Route\Exception\RouteRevisionAlreadyExists;
+use Endurance\Route\Exception\RouteRevisionNotFound;
+use Endurance\Route\ValueObject\ExpectedRouteState;
+use Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\ValueObject\RouteRevisionId;
 
 /** Unscoped storage: an application must authorize every read and write. */
 final readonly class DoctrineDbalRouteRepository implements RouteRepository, RouteRevisionReader

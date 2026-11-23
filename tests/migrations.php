@@ -3,6 +3,6 @@
 declare(strict_types=1);
 
 return [
-    'migrations_paths' => ['Youmad\\Endurance\\RoutePostgresql\\Migrations' => '../migrations'],
+    'migrations_paths' => ['Endurance\\RoutePostgresql\\Migrations' => '../migrations'],
     'all_or_nothing' => true,
 ];

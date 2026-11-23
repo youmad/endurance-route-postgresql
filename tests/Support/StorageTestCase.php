@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql\Tests\Support;
+namespace Endurance\RoutePostgresql\Tests\Support;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+use Endurance\Foundation\Clock\FrozenClock;
+use Endurance\Foundation\ValueObject\Coordinate;
+use Endurance\Foundation\ValueObject\Instant;
+use Endurance\Geo\PathGeometry;
+use Endurance\Geo\PathPoint;
+use Endurance\Geo\PathPosition;
+use Endurance\Route\Application\RevisionContent;
+use Endurance\Route\Application\UseCase\PublishRoute;
+use Endurance\Route\Entity\Route;
+use Endurance\Route\ValueObject\GeometryCoverage;
+use Endurance\Route\ValueObject\RevisionProperties;
+use Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\ValueObject\RouteMetadata;
+use Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\RoutePostgresql\DoctrineDbalRouteRepository;
 use PHPUnit\Framework\TestCase;
-use Youmad\Endurance\Foundation\Clock\FrozenClock;
-use Youmad\Endurance\Foundation\ValueObject\Coordinate;
-use Youmad\Endurance\Foundation\ValueObject\Instant;
-use Youmad\Endurance\Geo\PathGeometry;
-use Youmad\Endurance\Geo\PathPoint;
-use Youmad\Endurance\Geo\PathPosition;
-use Youmad\Endurance\Route\Application\RevisionContent;
-use Youmad\Endurance\Route\Application\UseCase\PublishRoute;
-use Youmad\Endurance\Route\Entity\Route;
-use Youmad\Endurance\Route\ValueObject\GeometryCoverage;
-use Youmad\Endurance\Route\ValueObject\RevisionProperties;
-use Youmad\Endurance\Route\ValueObject\RouteId;
-use Youmad\Endurance\Route\ValueObject\RouteMetadata;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
-use Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteRepository;
 
 abstract class StorageTestCase extends TestCase
 {
@@ -70,8 +70,8 @@ abstract class StorageTestCase extends TestCase
         return (new PublishRoute($this->storage, $this->clock))->create(RouteId::generate(), RouteRevisionId::generate(), new RouteMetadata('Route', 'Описание'), $this->properties(), $this->content());
     }
 
-    protected function maintenance(): \Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteMaintenance
+    protected function maintenance(): \Endurance\RoutePostgresql\DoctrineDbalRouteMaintenance
     {
-        return new \Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteMaintenance($this->db, $this->storage);
+        return new \Endurance\RoutePostgresql\DoctrineDbalRouteMaintenance($this->db, $this->storage);
     }
 }

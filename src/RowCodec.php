@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql;
+namespace Endurance\RoutePostgresql;
 
-use Youmad\Endurance\Foundation\ValueObject\Coordinate;
-use Youmad\Endurance\Foundation\ValueObject\Instant;
-use Youmad\Endurance\Geo\Elevation;
-use Youmad\Endurance\Route\Entity\Route;
-use Youmad\Endurance\Route\ValueObject\GeometryAnchor;
-use Youmad\Endurance\Route\ValueObject\RevisionProperties;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
-use Youmad\Endurance\Route\ValueObject\ViaPointAnchor;
+use Endurance\Foundation\ValueObject\Coordinate;
+use Endurance\Foundation\ValueObject\Instant;
+use Endurance\Geo\Elevation;
+use Endurance\Route\Entity\Route;
+use Endurance\Route\ValueObject\GeometryAnchor;
+use Endurance\Route\ValueObject\RevisionProperties;
+use Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\Route\ValueObject\ViaPointAnchor;
 
 /** @internal Values written to Route tables. */
 final class RowCodec

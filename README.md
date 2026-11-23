@@ -4,17 +4,17 @@ Doctrine DBAL storage for Endurance Route. Requires PHP 8.5, PostgreSQL 18,
 PDO pgsql and Doctrine DBAL ^4.4.
 
 ```bash
-composer require youmad/endurance-route-postgresql
+composer require endurance/route-postgresql
 ```
 
 Register `migrations/` under namespace
-`Youmad\Endurance\RoutePostgresql\Migrations` in your migration runner and apply
+`Endurance\RoutePostgresql\Migrations` in your migration runner and apply
 it before use. The repository does not create schema automatically.
 
 ```php
-use Youmad\Endurance\Foundation\Clock\SystemClock;
-use Youmad\Endurance\Route\Application\UseCase\PublishRoute;
-use Youmad\Endurance\RoutePostgresql\DoctrineDbalRouteRepository;
+use Endurance\Foundation\Clock\SystemClock;
+use Endurance\Route\Application\UseCase\PublishRoute;
+use Endurance\RoutePostgresql\DoctrineDbalRouteRepository;
 
 $routes = new DoctrineDbalRouteRepository($connection);
 $publisher = new PublishRoute($routes, new SystemClock());

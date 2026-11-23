@@ -2,30 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql;
+namespace Endurance\RoutePostgresql;
 
-use Youmad\Endurance\Foundation\ValueObject\Coordinate;
-use Youmad\Endurance\Foundation\ValueObject\Instant;
-use Youmad\Endurance\Geo\Elevation;
-use Youmad\Endurance\Geo\ElevationOrigin;
-use Youmad\Endurance\Geo\PathPoint;
-use Youmad\Endurance\Geo\PathPosition;
-use Youmad\Endurance\Geo\ViaPoint;
-use Youmad\Endurance\Route\Entity\Route;
-use Youmad\Endurance\Route\Entity\RouteRevision;
-use Youmad\Endurance\Route\ValueObject\GeometryAnchor;
-use Youmad\Endurance\Route\ValueObject\GeometryCoverage;
-use Youmad\Endurance\Route\ValueObject\NavigationCue;
-use Youmad\Endurance\Route\ValueObject\ReportedDistance;
-use Youmad\Endurance\Route\ValueObject\RevisionProperties;
-use Youmad\Endurance\Route\ValueObject\RevisionProvenance;
-use Youmad\Endurance\Route\ValueObject\RouteContentSummary;
-use Youmad\Endurance\Route\ValueObject\RouteId;
-use Youmad\Endurance\Route\ValueObject\RouteMetadata;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
-use Youmad\Endurance\Route\ValueObject\RouteVersion;
-use Youmad\Endurance\Route\ValueObject\RouteWaypoint;
-use Youmad\Endurance\Route\ValueObject\ViaPointAnchor;
+use Endurance\Foundation\ValueObject\Coordinate;
+use Endurance\Foundation\ValueObject\Instant;
+use Endurance\Geo\Elevation;
+use Endurance\Geo\ElevationOrigin;
+use Endurance\Geo\PathPoint;
+use Endurance\Geo\PathPosition;
+use Endurance\Geo\ViaPoint;
+use Endurance\Route\Entity\Route;
+use Endurance\Route\Entity\RouteRevision;
+use Endurance\Route\ValueObject\GeometryAnchor;
+use Endurance\Route\ValueObject\GeometryCoverage;
+use Endurance\Route\ValueObject\NavigationCue;
+use Endurance\Route\ValueObject\ReportedDistance;
+use Endurance\Route\ValueObject\RevisionProperties;
+use Endurance\Route\ValueObject\RevisionProvenance;
+use Endurance\Route\ValueObject\RouteContentSummary;
+use Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\ValueObject\RouteMetadata;
+use Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\Route\ValueObject\RouteVersion;
+use Endurance\Route\ValueObject\RouteWaypoint;
+use Endurance\Route\ValueObject\ViaPointAnchor;
 
 final class RouteReadProjection
 {

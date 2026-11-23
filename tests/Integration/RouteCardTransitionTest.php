@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Youmad\Endurance\RoutePostgresql\Tests\Integration;
+namespace Endurance\RoutePostgresql\Tests\Integration;
 
 use Doctrine\DBAL\Exception\DriverException;
-use Youmad\Endurance\Foundation\Clock\FrozenClock;
-use Youmad\Endurance\Foundation\ValueObject\Instant;
-use Youmad\Endurance\Route\Application\UseCase\EditRouteMetadata;
-use Youmad\Endurance\Route\Application\UseCase\PublishRoute;
-use Youmad\Endurance\Route\ValueObject\RouteId;
-use Youmad\Endurance\Route\ValueObject\RouteMetadata;
-use Youmad\Endurance\Route\ValueObject\RouteRevisionId;
-use Youmad\Endurance\RoutePostgresql\Tests\Support\StorageTestCase;
+use Endurance\Foundation\Clock\FrozenClock;
+use Endurance\Foundation\ValueObject\Instant;
+use Endurance\Route\Application\UseCase\EditRouteMetadata;
+use Endurance\Route\Application\UseCase\PublishRoute;
+use Endurance\Route\ValueObject\RouteId;
+use Endurance\Route\ValueObject\RouteMetadata;
+use Endurance\Route\ValueObject\RouteRevisionId;
+use Endurance\RoutePostgresql\Tests\Support\StorageTestCase;
 
 final class RouteCardTransitionTest extends StorageTestCase
 {
